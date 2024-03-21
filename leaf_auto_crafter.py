@@ -25,11 +25,12 @@ def on_click(x, y, button, pressed):
 # lista = [x for x in range(1260, 1300)]
 # # print(range(1160, 1200).count())
 # # print([ImageGrab.grab().load()[x,y] for x in lista])
-normal_time = 0.1
+pyautogui.FAILSAFE = False
+normal_fps_time = 0.1
 twenty_fps_time = 0.60
 while True:
-    if ImageGrab.grab().load()[320, 930] == (255, 255, 255):
-        time.sleep(twenty_fps_time)
+    if ImageGrab.grab().load()[323, 930] == (255, 255, 255):
+        time.sleep(normal_fps_time)
         pyautogui.moveTo(766, 789)
         pyautogui.mouseDown()
         pyautogui.mouseUp()

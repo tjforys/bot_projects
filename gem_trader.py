@@ -16,7 +16,7 @@ def on_click(x, y, button, pressed):
 cancel_coords = 1792 
 # 657
 
-
+482, 231
 time.sleep(3)
 gem_color = (255, 0, 68)
 gem_x_coord = 1252
@@ -36,6 +36,8 @@ while True:
     if keyboard.is_pressed("o"):
         start_game = True
     if start_game:
+        if ImageGrab.grab().load()[481, 320] == (255, 255, 255):
+            pyautogui.scroll(-1)
         for y_coord in cancel_coord_list:
             if ImageGrab.grab().load()[gem_x_coord, y_coord] == gem_color:
                 if ImageGrab.grab().load()[cancel_coords, y_coord] == cancel_color:

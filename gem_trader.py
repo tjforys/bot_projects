@@ -18,7 +18,12 @@ cancel_coords = 1792
 
 482, 231
 time.sleep(3)
+
 gem_color = (255, 0, 68)
+cheese_color = (244, 180, 27)
+beer_color = (173, 193, 188)
+borb_color = (206, 245, 135)
+
 gem_x_coord = 1252
 cancel_color = (221, 26, 30)
 start_button_x_coord = 2090

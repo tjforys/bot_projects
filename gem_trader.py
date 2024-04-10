@@ -1,7 +1,7 @@
 from PIL import ImageGrab
 import pyautogui
 import keyboard
-
+import time
 
 def move_click(coord_x = None, coord_y = None):
     if coord_x and coord_y:
@@ -12,6 +12,16 @@ def move_click(coord_x = None, coord_y = None):
 
 def is_auto_refresh_text_present():
     return ImageGrab.grab().load()[481, 320] == (255, 255, 255)
+
+
+def teleport_to_witch_and_back():
+    witch_area_x, witch_area_y = 1770, 1036
+    inner_pyramid_x, inner_pyramid_y = 1770, 750
+    pyautogui.press("v")
+    move_click(witch_area_x, witch_area_y)
+    time.sleep(5)
+    move_click(inner_pyramid_x, inner_pyramid_y)
+    pyautogui.press("y")
 
 
 cancel_coords = 1792 
@@ -31,12 +41,17 @@ borb_color = (206, 245, 135)
 current_material = gem_color
 start_game = False
 
-
 while True:
     if keyboard.is_pressed("o"):
         start_game = True
+        teleport_to_witch_and_back()
+        start_time=time.time()
 
     if start_game:
+        if time.time() - start_time >= 165:
+            teleport_to_witch_and_back()
+            start_time = time.time()
+
         if is_auto_refresh_text_present():
             pyautogui.scroll(-1)
 
